@@ -1,0 +1,26 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+
+    {% block title %}
+    <title>Register</title>
+    {% endblock %}
+
+
+
+{% block content %}
+<p class="h3" align="center">Laptop Register Form</p>
+
+<div class="container">
+    <form method="post" class="jumbotron" style="50%">
+    {% csrf_token %}
+    {{form | crispy}}
+    <input type="submit" value="Laptop Register " class="btn btn-success">
+
+    </form>
+
+</div>
+
+
+{% endblock %}

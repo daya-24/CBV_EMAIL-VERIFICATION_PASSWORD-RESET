@@ -1,0 +1,55 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Laptop Data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<p class="h3" align="center">Laptop Data</p>
+<br><br>
+<table class="table table-striped">
+    <tr>
+        <th>Laptop Company</th>
+        <th>Model Name</th>
+        <th>RAM</th>
+        <th>ROM</th>
+        <th>Processor</th>
+        <th>Price</th>
+        <th>Weight</th>
+        <th>Action</th>
+        <th>Action</th>
+
+    </tr>
+
+     {% for p1 in show_obj %}
+    <tr>
+        <td>{{p1.company}}</td>
+        <td>{{p1.model_name}}</td>
+        <td>{{p1.ram}}</td>
+        <td>{{p1.rom}}</td>
+        <td>{{p1.processor}}</td>
+        <td>{{p1.price}}</td>
+        <td>{{p1.weight}}</td>
+        <td>
+            <a href="{% url 'delete' p1.id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        </td>
+
+        <td>
+            <a href="{% url 'update' p1.id %}">
+                <button class="btn btn-warning">Update</button>
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+<a class="btn btn-secondary btn-lg " href="{% url 'add_lap' %}">Add Laptop </a>
+
+{% endblock %}
